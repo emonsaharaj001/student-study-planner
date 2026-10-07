@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Study Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    S
+                </div>
+
+                <div>
+                    <h2>Study Planner</h2>
+                    <span>Stay focused. Keep learning.</span>
+                </div>
+
+            </div>
+
+
+            <!-- Navigation -->
+            <nav class="navigation">
+
+                <a
+                    href="#dashboard"
+                    class="nav-item active"
+                    data-section="dashboard"
+                >
+                    <span>📊</span>
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="#subjects"
+                    class="nav-item"
+                    data-section="subjects"
+                >
+                    <span>📚</span>
+                    Subjects
+                </a>
+
+
+                <a
+                    href="#tasks"
+                    class="nav-item"
+                    data-section="tasks"
+                >
+                    <span>✅</span>
+                    Tasks
+                </a>
+
+
+                <a
+                    href="#progress"
+                    class="nav-item"
+                    data-section="progress"
+                >
+                    <span>📈</span>
+                    Progress
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="quote">
+
+                    <p>
+                        "Success is the sum of small efforts,
+                        repeated every day."
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+
+            <!-- Top Header -->
+            <header class="topbar">
+
+                <div>
+
+                    <p class="welcome-text">
+                        Good morning 👋
+                    </p>
+
+                    <h1>
+                        Let's plan your study day.
+                    </h1>
+
+                </div>
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        ER
+                    </div>
+
+                    <div>
+                        <strong>Student</strong>
+                        <span>Keep going!</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- Statistics -->
+            <section
+                class="stats-grid"
+                id="dashboard"
+            >
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        📚
+                    </div>
+
+                    <div>
+                        <span>Total Subjects</span>
+                        <strong>4</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        📝
+                    </div>
+
+                    <div>
+                        <span>Today's Tasks</span>
+                        <strong id="taskCount">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✅
+                    </div>
+
+                    <div>
+                        <span>Completed</span>
+                        <strong id="completedCount">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        🔥
+                    </div>
+
+                    <div>
+                        <span>Study Streak</span>
+                        <strong>3 Days</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Main Grid -->
+            <section class="dashboard-grid">
+
+
+                <!-- Today's Tasks -->
+                <div
+                    class="panel tasks-panel"
+                    id="tasks"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Today's Study Tasks
+                            </h2>
+
+                            <p>
+                                Focus on what matters today.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-btn"
+                            id="openTaskModal"
+                        >
+                            + Add Task
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="task-list"
+                        id="taskList"
+                    >
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                📋
+                            </div>
+
+                            <h3>
+                                No tasks yet
+                            </h3>
+
+                            <p>
+                                Add your first study task
+                                for today.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Progress -->
+                <div
+                    class="panel progress-panel"
+                    id="progress"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Today's Progress
+                            </h2>
+
+                            <p>
+                                Keep pushing forward.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-circle">
+
+                        <div class="progress-inner">
+
+                            <strong id="progressPercentage">
+                                0%
+                            </strong>
+
+                            <span>
+                                Completed
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-info">
+
+                        <div>
+
+                            <span>
+                                Completed
+                            </span>
+
+                            <strong id="progressCompleted">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Remaining
+                            </span>
+
+                            <strong id="progressRemaining">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Subjects -->
+            <section
+                class="panel subjects-panel"
+                id="subjects"
+            >
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Your Subjects
+                        </h2>
+
+                        <p>
+                            Organize your learning by subject.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="subjects-grid">
+
+
+                    <div class="subject-card">
+
+                        <div class="subject-icon">
+                            💻
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Computer Science
+                            </h3>
+
+                            <p>
+                                12 tasks
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="subject-card">
+
+                        <div class="subject-icon">
+                            📐
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Mathematics
+                            </h3>
+
+                            <p>
+                                8 tasks
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="subject-card">
+
+                        <div class="subject-icon">
+                            🔬
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Physics
+                            </h3>
+
+                            <p>
+                                6 tasks
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="subject-card">
+
+                        <div class="subject-icon">
+                            📖
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                English
+                            </h3>
+
+                            <p>
+                                10 tasks
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- Add Task Modal -->
+    <div
+        class="modal-overlay"
+        id="taskModal"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>
+                        Add Study Task
+                    </h2>
+
+                    <p>
+                        Create a task for today.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-btn"
+                    id="closeTaskModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <form id="taskForm">
+
+                <div class="form-group">
+
+                    <label for="taskTitle">
+                        Task title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="taskTitle"
+                        placeholder="e.g. Learn JavaScript arrays"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="taskSubject">
+                            Subject
+                        </label>
+
+                        <select id="taskSubject">
+
+                            <option value="Computer Science">
+                                Computer Science
+                            </option>
+
+                            <option value="Mathematics">
+                                Mathematics
+                            </option>
+
+                            <option value="Physics">
+                                Physics
+                            </option>
+
+                            <option value="English">
+                                English
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="taskTime">
+                            Study time
+                        </label>
+
+                        <input
+                            type="number"
+                            id="taskTime"
+                            placeholder="30"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="primary-btn full-width"
+                >
+                    Add Task
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
